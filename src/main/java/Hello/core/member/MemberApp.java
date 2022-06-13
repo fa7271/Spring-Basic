@@ -10,7 +10,7 @@ public class MemberApp {
     public static void main(String[] args) {
 
 //        2 AppConfig appConfig = new AppConfig();                      //appconfig 사용 개발
-//        2 MemberService memberService = appConfig.memberService();    //memverserivce 를 꺼내 멤버서비스안에는 impl들어있음
+//        2 MemberService memberService = appConfig.memberService();    //appconfig 에서 memverserivce 를 꺼내 impl 까지 접근해서 주입
 
 //       1 MemberService memberService = new MemberServiceImpl();        // 직접 해주는거임 별로 안좋다
 
