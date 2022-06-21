@@ -7,6 +7,9 @@ import java.util.List;
 class Study {
     private static Integer[] append(Integer[] arr, int element) {
         List<Integer> list = new ArrayList<>(Arrays.asList(arr));
+
+//        array 는 고정길이 arraylist 는 가변길이 arraylist 의 default 배열 길이는 10이다
+
 //        Integer 와 int 에 차이 int 은 자료형이다 data 의 type 에 따라 저장될 공간의 크기와 저장 형식을 정의한것 (기본형/변수의타입)
 //        Integer 는 매개변수로 객체를 필요로 할 떄 / 기본형 값이 아닌 객체로 저장해야할 때 / 객체 간 비교가 필요할때
 //        이런 경우 가본형을 객체로 다루기 위해 사용하는 클래스들을 래퍼클래스 라고 한다.
