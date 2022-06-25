@@ -23,7 +23,7 @@ public class ApplicationContextBasicFindTest {
 
     @Test
     @DisplayName("타입으로만 조회")
-
+//구체화보다는 인터페이스를 써주는게 좋음 (역할 의존)
     void findBeanByType(){
         MemberService memberService = ac.getBean( MemberService.class);
         Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);     // 멤버서비스가 멤버서비스임플에 있으면 성공
@@ -43,5 +43,6 @@ public class ApplicationContextBasicFindTest {
         //MemberService xxxx = ac.getBean("xxxx", MemberService.class);
         org.junit.jupiter.api.Assertions.assertThrows(NoSuchBeanDefinitionException.class,
                 ()->ac.getBean("xxxx", MemberService.class));
+        // 예외가 던져지면 성공
     }
 }
