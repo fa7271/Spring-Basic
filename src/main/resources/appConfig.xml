@@ -9,12 +9,12 @@
     <bean id="memberRepository" class="Hello.core.member.MemoryMemberRepository"/>
 <!--이 과정이 AppConfig 의 memberserive, memberrepository 의 스프링 빈 등록 과정-->
 
-
+<!--오더서비스-->
     <bean id="orderService" class="Hello.core.order.OrderServiceImpl">
         <constructor-arg name="memberRepository" ref="memberRepository"/>
         <constructor-arg name="discountPolicy" ref="discountPolicy"/>
     </bean>
-
+<!--할인정책-->
     <bean id="discountPolicy" class="Hello.core.discount.RateDiscountPolicy"/>
 
 </beans>
