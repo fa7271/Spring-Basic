@@ -29,9 +29,12 @@ public class ApplicationContextInfoTest {
             // role_application  직접 등록하는 빈
             // role_INFRASTRUCTURE 스프링이 내부에서 사용하는빈
 
-            if (beanDefinition.getRole () == BeanDefinition.ROLE_APPLICATION) { //주로 애플리케이션을 개발하기 위해 등록한 빈 / 혹은 외부 라이브러리
+            if (beanDefinition.getRole () == BeanDefinition.ROLE_APPLICATION) {
                 Object bean = ac.getBean(beanDefinitionName); //
                 System.out.println("name = " + beanDefinitionName + " object =" +bean);
+//                beanDefinition.getRole () == BeanDefinition.ROLE_APPLICATION
+//                주로 애플리케이션을 개발하기 위해 등록한 빈 / 혹은 외부 라이브러리
+//                ROLE_INFRASTRUCTURE : 스프링이 내부에서 사용하는 빈
             }
         }
     }
