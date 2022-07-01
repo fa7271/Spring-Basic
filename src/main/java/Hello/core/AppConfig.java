@@ -23,16 +23,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration // + Bean 해주면 다 등록이 됨 AppConfig에 설정을 구성한다 라는 뜻
 public class AppConfig {
     // @Bean 스프링 컨테이너에 스프링 빈으로 등록한다.
+
+    //@bean  memberService >> MemoryMemberRepository()
+    //@bean  orderService  >> MemoryMemberRepository()
+    // >> 싱글톤이 깨지는 것 처럼 보인다. 스프링 컨테이너는 어떻게 해결할까
+
     @Bean
     public MemberService memberService() {                  //2
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());   //구현체 생성 되는데 메모리 멤버 레파지토리가 들어옴  생상해서 impl를 생성 주입 >> 생성자 주입
     }
     @Bean
     public MemoryMemberRepository memberRepository() {     //1
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();                //MemoryMemberRepository 를 생성해서
     }
     @Bean
     public OrderService orderService(){
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(
                 memberRepository(), //
                   discountPolicy());  //두개들고 리턴됨
