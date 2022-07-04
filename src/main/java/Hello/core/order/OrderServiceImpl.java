@@ -7,6 +7,10 @@ import Hello.core.member.Member;
 import Hello.core.member.MemberRepository;
 import Hello.core.member.MemberServiceImpl;
 import Hello.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class OrderServiceImpl implements OrderService{
 
 // 2   private final MemberRepository memberRepository = new MemoryMemberRepository();//회원 찾아야함
@@ -18,6 +22,7 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;    //순수한 인터페이스에만 의존
     private final DiscountPolicy discountPolicy;         //순수한 인터페이스에만 의존
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
