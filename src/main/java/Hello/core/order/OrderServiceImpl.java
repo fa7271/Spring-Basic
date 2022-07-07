@@ -21,13 +21,13 @@ public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;    //순수한 인터페이스에만 의존
     private final DiscountPolicy discountPolicy;         //순수한 인터페이스에만 의존
+    //private final 로 되어있으면 무조건 생성자나 기본으로 할당 되어야함
 
     @Autowired // 생략가능
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-    //private final 로 되어있으면 무조건 생성자나 기본으로 할당 되어야함
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {       //orderservice 타입이 orderd인 createOrder 클래스
         Member member = memberRepository.findBId(memberId);                  //회원정보조회
