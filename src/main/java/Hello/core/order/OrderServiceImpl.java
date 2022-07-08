@@ -1,5 +1,6 @@
 package Hello.core.order;
 
+import Hello.core.annotation.MainDiscountPolicy;
 import Hello.core.discount.DiscountPolicy;
 import Hello.core.discount.FixDiscountPolicy;
 import Hello.core.discount.RateDiscountPolicy;
@@ -7,10 +8,13 @@ import Hello.core.member.Member;
 import Hello.core.member.MemberRepository;
 import Hello.core.member.MemberServiceImpl;
 import Hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+//@RequiredArgsConstructor // final이 붙은걸 가지고 생성자를 만들어줌
 public class OrderServiceImpl implements OrderService{
 
 // 2   private final MemberRepository memberRepository = new MemoryMemberRepository();//회원 찾아야함
@@ -24,7 +28,7 @@ public class OrderServiceImpl implements OrderService{
     //private final 로 되어있으면 무조건 생성자나 기본으로 할당 되어야함
 
     @Autowired // 생략가능
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
