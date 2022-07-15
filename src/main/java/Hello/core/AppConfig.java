@@ -21,6 +21,8 @@ import org.springframework.context.annotation.Configuration;
 //프로그램의 제어흐름은 appconfig가 갖고있음
 //ioC컨테이너 또는 DI컨테이너 요즘은 DI컨테이너라고함
 @Configuration // + Bean 해주면 다 등록이 됨 AppConfig에 설정을 구성한다 라는 뜻
+// app 에서         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+//AnnotationConfigApplicationContext 에 있는것들을 만듦
 public class AppConfig {
     // @Bean 스프링 컨테이너에 스프링 빈으로 등록한다.
 
