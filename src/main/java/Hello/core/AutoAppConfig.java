@@ -12,7 +12,8 @@ import org.springframework.context.annotation.FilterType;
         (
                 basePackages = "Hello.core.member",
                 basePackageClasses = AutoAppConfig.class,
-                excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class) //타입 정해서 뺌
+                excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
+                //@ComponentScan 를 붙이면 @Configuration이 붙은 설정 정보도 자동으로 등록되니때문에 필터해
         )
 public class AutoAppConfig {
         @Bean(name = "memoryMemberRepository")

@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService{
     private final DiscountPolicy discountPolicy;         //순수한 인터페이스에만 의존
     //private final 로 되어있으면 무조건 생성자나 기본으로 할당 되어야함
 
-    @Autowired // 생략가능
+    @Autowired // 생성자가 1개면 생략가능. >> 이전은 appcconfig 에서 new로 의존관계를 주입해주는것.
     public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
