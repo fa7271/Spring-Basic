@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-//@RequiredArgsConstructor // final이 붙은걸 가지고 생성자를 만들어줌
+//@RequiredArgsConstructor // final이 붙은걸 가지고 생성자를 만들어줌 31~34 줄을 만들어 줌
 public class OrderServiceImpl implements OrderService{
 
 // 2   private final MemberRepository memberRepository = new MemoryMemberRepository();//회원 찾아야함
