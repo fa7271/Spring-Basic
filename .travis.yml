@@ -1,0 +1,28 @@
+language: java
+jdk:
+  - openjdk8
+
+branches:
+  only:
+    - master
+
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+before_deploy:
+  - zip -r springbasicproject
+  - mkdir -p deploy
+  - mv springbasicproject.zip deploy/springbaiscproject.zip
+
+
+
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - fa7271@naver.com
