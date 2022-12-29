@@ -1,6 +1,6 @@
 package Hello.core.member;
 
-// 회원가입 회원조회
+// 회원가입 회원조회 역할
 public interface MemberService {
 
     void join(Member member);               //회원가입
