@@ -13,6 +13,7 @@ public class MemberApp {
 //        2 MemberService memberService = appConfig.memberService();    //appconfig 에서 memverserivce 를 꺼내 impl 까지 접근해서 주입
 
 //       1 MemberService memberService = new MemberServiceImpl();        // 직접 해주는거임 별로 안좋다
+//        MemberService 는 MemberServiceImpl의 부모 (다형성)
 
         //Spring 사용하는 방식
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
