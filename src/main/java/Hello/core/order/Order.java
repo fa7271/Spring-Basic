@@ -6,12 +6,15 @@ public class Order {
     private int itemPrice;
     private int discountPrice;
 
+//    주문 다 하고 만들어지는 객체
     public Order(Long memberId, String itemName, int itemPrice, int discountPrice) {
         this.memberId = memberId;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.discountPrice = discountPrice;
     }
+
+//    계산 로직 하나 추가
     public int calculatePrice(){
         return itemPrice - discountPrice;
     }
@@ -48,7 +51,7 @@ public class Order {
         this.discountPrice = discountPrice;
     }
 
-//출력하기 쉽게
+//출력하기 쉽게, 단축키 ctrl+N > tostring
     @Override
     public String toString() {
         return "Order{" +
