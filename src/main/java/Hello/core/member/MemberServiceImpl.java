@@ -15,6 +15,7 @@ public class MemberServiceImpl implements MemberService{
     public MemberServiceImpl(MemberRepository memberRepository) {       //생성자를 통해서 memberRepository 뭐가들어갈지 구현
         this.memberRepository = memberRepository;
     }
+//    생성자를 통해서 memberRepository 에 구현체가 뭐가 들어갈지 정함 > appconfig (new memorymemberRepository)
 
     @Override
     public void join(Member member) {

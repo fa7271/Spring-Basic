@@ -23,13 +23,14 @@ public class OrderServiceImpl implements OrderService{
 
 // 2 ***  private DiscountPolicy discountPolicy;   //  인터페이스에만 의존함  >> 근데 구현체가없는데 어떻게 실행된다는 의문이 생김  >> nullpoinException
 // >>> 누군가가 구현객체를 생성하고 대신생성하고 주입해주어야하한다 >>> 예를들면 원래는 배우가 공연도하고 상대 배역도 찾는다>> 배우는 공연만, 상대배역은 기획자가
-//   해결 >>> 기획자 역할이 appconfig 에서 연결해주는 역할
+//   해결 >>> 기획자 역할이 appconfig> 구현객체를 생성하고 연결하는 책임을 가지는 별도의 클래스
 
     private final MemberRepository memberRepository;    //순수한 인터페이스에만 의존
     private final DiscountPolicy discountPolicy;         //순수한 인터페이스에만 의존
     //private final 로 되어있으면 무조건 생성자나 기본으로 할당 되어야함
 
     @Autowired // 생성자가 1개면 생략가능. >> 이전은 appcconfig 에서 new로 의존관계를 주입해주는것.
+//    @MainDiscountPolicy Discountpolicy 가 우선임
     public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
