@@ -22,12 +22,16 @@ class StatefulServiceTest {
         //ThreadA : A 사용자 10000원 주문
         statefulService2.order("userB",20000);
 
+// 해결 방안 지역변수 사용하기
+//        int userAPrice = statefulService1.order("userA",10000);
+
+
+
         //ThreaA : 사용자A 주문 금액 조회
         int price = statefulService1.getPrice();
         System.out.println("price = " + price);
 
         org.assertj.core.api.Assertions.assertThat(statefulService1.getPrice()).isEqualTo(20000);
-
 
 
     }

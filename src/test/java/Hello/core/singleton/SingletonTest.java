@@ -58,7 +58,7 @@ public class SingletonTest {
     void springContainer(){
 //        AppConfig appConfig = new AppConfig();
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
-
+// 싱글톤 컨테이너에 등록해줌
         MemberService memberService1 = ac.getBean("memberService",MemberService.class);
         MemberService memberService2 = ac.getBean("memberService",MemberService.class);
 

@@ -12,7 +12,7 @@ public class StatefulService {
 // 2       System.out.println("name = " + name + " price = " + price);
 // 2       return price;
 // 2   }
-//    해결 방안 5번째줄도 주석처리
+// +    해결 방안 5번째줄도 주석처리
     public int getPrice(){
         return price;
     }
