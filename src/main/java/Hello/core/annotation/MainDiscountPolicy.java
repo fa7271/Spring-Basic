@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
-@Qualifier("mainDiscountPolicy")
+@Qualifier("mainDiscountPolicy") // 컴파일때 문제를 잡기 위해서 오타나면 컴파일 오류로 잡을수 있다.
 
 public @interface  MainDiscountPolicy {
 
