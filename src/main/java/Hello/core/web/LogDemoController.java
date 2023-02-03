@@ -15,11 +15,11 @@ public class LogDemoController {
 
     private final LogDemoService logDemoService;
 //1    private final ObjectProvider<MyLogger> myLoggerProvider; // 찾을수 있는 디펜덴시 마이로거가 주입
-    private final MyLogger myLogger; // 찾을수 있는 디펜덴시 마이로거가 주입
+    private final MyLogger myLogger; // 찾을수 있는 디펜덴시 마이로거가 주입 // 고객이 들어오지도 않았는데 주입 하려고 함
 
     @RequestMapping("log-demo")
     @ResponseBody // 문자를 그대로 보낼 수 있음
-    public String logDemo(HttpServletRequest request) /*throws InterruptedException*/ {
+    public String logDemo(HttpServletRequest request) /*throws InterruptedException*/  { // 고객요청정보를 받을 수 있는거다
 //1        MyLogger myLogger = myLoggerProvider.getObject();
         String requestURL = request.getRequestURI().toString();
         myLogger.setRequestURL(requestURL);

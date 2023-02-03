@@ -19,16 +19,17 @@ public class SingletonWithPrototypeTest1 {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
         PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
         prototypeBean1.addCount();
-        assertThat(prototypeBean1.getCount()).isEqualTo(PrototypeBean.class);
+        assertThat(prototypeBean1.getCount()).isEqualTo(1);
 
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
         prototypeBean2.addCount();
-        assertThat(prototypeBean2.getCount()).isEqualTo(PrototypeBean.class);
+        assertThat(prototypeBean2.getCount()).isEqualTo(1);
 
     }
 
 
     @Test
+//  ClinetBean = SingletobBean
     void singtonClientUsePrototype() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ClientBean.class, PrototypeBean.class);
         ClientBean clientBean1 = ac.getBean(ClientBean.class);
@@ -49,8 +50,7 @@ public class SingletonWithPrototypeTest1 {
         public int logic() {
             PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
             prototypeBean.addCount();
-            int count = prototypeBean.getCount();
-            return count;
+            return prototypeBean.getCount();
         }
     }
     @Scope("prototype")

@@ -15,7 +15,11 @@ public class SingtonTest {
     @Test
     void singletonBeanFine() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SingletonBean.class);
+        System.out.println("find prototypeBean1");
+
         SingletonBean singletonBean1 = ac.getBean(SingletonBean.class);
+        System.out.println("find prototypeBean2");
+
         SingletonBean singletonBean2 = ac.getBean(SingletonBean.class);
 
         System.out.println("singletonBean1 = " + singletonBean1);
@@ -40,3 +44,5 @@ public class SingtonTest {
         }
     }
 }
+
+// 결과 init 이 먼저 되고 find, singletomBean1 순으로 나온다.

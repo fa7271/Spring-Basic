@@ -15,9 +15,9 @@ public class PrototypeTest {
     @Test
     void prototypeBeanFind() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
-        System.out.println("find prototypeBean1");
+        System.out.println("find prototypeBean1"); // 빈 조회하기 직전에 생성되기 때문에
 
-        PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
+        PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class); // 이때 init 이 호출됨
         System.out.println("find prototypeBean2");
 
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
@@ -26,9 +26,9 @@ public class PrototypeTest {
 
         assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
 
-        ac.close(); // 프로토 타입이라 호출 안됨
+        ac.close(); // 프로토 타입이라 호출 안됨 /이미 만들고 버린거임
 
-        prototypeBean1.destroy();
+        prototypeBean1.destroy(); // 수동으로 직접 호출
         prototypeBean2.destroy();
     }
     @Scope("prototype")
