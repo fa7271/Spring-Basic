@@ -20,8 +20,9 @@ public class LogDemoController {
     @RequestMapping("log-demo")
     @ResponseBody // 문자를 그대로 보낼 수 있음
     public String logDemo(HttpServletRequest request) /*throws InterruptedException*/  { // 고객요청정보를 받을 수 있는거다
-//1        MyLogger myLogger = myLoggerProvider.getObject();
         String requestURL = request.getRequestURI().toString();
+//1       MyLogger myLogger = myLoggerProvider.getObject();
+        System.out.println("myLogger = " + myLogger.getClass()); // 아무것도 없던 시점에는 가짜 mylogger 가 들어옴 CGLIB 형태
         myLogger.setRequestURL(requestURL);
 
         myLogger.log("controller test");
